@@ -14,11 +14,10 @@ Refactoring [udagram initial monolitic](https://github.com/udacity/cloud-develop
 - Also, ensure all environment variables are set up in your `~/.profile`.
 - For Docker:
     - First, install Docker in your system.
-    - Create the docker images for the `udagram-frontend`, `udagram-restapi-feed`, and `udagram-restapi-user` folders. E.g. the command is `sudo docker build -t [name]/udagram-frontend .` 
-    - For Reverseproxy, you need to create another docker image in the `nginx` folder using the same command. 
-    - Push the docker images to DockerHub using `sudo docker push [name]/udagram-frontend`.
-    - Once all images are pushed, you can build using `sudo -E docker-compose up` whilst in the docker deployment folder.
-    - Go to Localhost:8080 to test. 
+    - Build images using `docker-compose -f docker-compose-build.yaml build --parallel`
+    - Push the docker images to DockerHub using `docker-compose -f docker-compose-build.yaml push`.
+    - Run application locally using `docker-compose -f docker-compose.yaml up`. **Note** you have to export enviroment varibales needed for the application first. Fill *secrets.example.sh* and Run `source secrets.example.sh`
+    - Go to Localhost:8100 to test. 
     - Docker deployment complete.
 - For Kubernetes:
     - Install Kubernetes using the Kubeone instructions given here:  `https://github.com/kubermatic/kubeone/blob/master/docs/quickstart-aws.md`
