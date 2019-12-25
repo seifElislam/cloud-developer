@@ -3,9 +3,10 @@ kind: Deployment
 metadata:
   labels:
     app: backend-user
+    version: v2
   name: backend-user
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: backend-user
@@ -13,9 +14,10 @@ spec:
     metadata:
       labels:
         app: backend-user
+        version: v2
     spec:
       containers:
-      - image: seifeleslam/udagram-restapi-user
+      - image: seifeleslam/udagram-restapi-user:latest
         name: backend-user 
         imagePullPolicy: Always  
         resources:
